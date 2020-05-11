@@ -1,0 +1,25 @@
+@model Practice.Models.Product
+
+@{
+    ViewBag.Title = "New Product";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    
+    <p>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount)    
+    </p>
+    @Html.HiddenFor(m => m.Status, new { value = "1" })
+    
+    <button type="submit">Create Product</button>
+}
