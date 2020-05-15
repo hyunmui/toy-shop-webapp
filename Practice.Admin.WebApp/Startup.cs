@@ -6,9 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Practice.Repositories;
-using Practice.Services;
 
-namespace Practice.WebApp
+namespace Practice.Admin.WebApp
 {
     public class Startup
     {
@@ -26,16 +25,13 @@ namespace Practice.WebApp
                 options.UseMySQL(Configuration.GetConnectionString("Default")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<OrderingContext>();
-            services.AddScoped<ProductService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OrderingContext orderingContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            orderingContext.Database.Migrate();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
