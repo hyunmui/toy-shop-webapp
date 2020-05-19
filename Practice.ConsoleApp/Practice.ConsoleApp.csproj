@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Practice.Services\Practice.Services.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="templates\sample.cshtml"/>
+        <EmbeddedResource Include="templates\sample.cshtml"/>
+        <None Remove="templates\test.html"/>
+        <EmbeddedResource Include="templates\test.html"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Views\Templates\Sample.cshtml"/>
+        <EmbeddedResource Include="Views\Templates\Sample.cshtml"/>
+    </ItemGroup>
+
+</Project>

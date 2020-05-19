@@ -5,7 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Practice.Repositories\Practice.Repositories.csproj" />
+        <ProjectReference Include="..\Practice.Repositories\Practice.Repositories.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="RazorLight.NetCore3" Version="3.0.2"/>
     </ItemGroup>
 
 </Project>
